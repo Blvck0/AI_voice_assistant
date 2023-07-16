@@ -1,6 +1,6 @@
 import pyttsx3
 import datetime
-import speechRecognition as sr
+import speech_recognition as sr
 
 
 engine = pyttsx3.init('sapi5')
@@ -35,11 +35,20 @@ def takeCommand():
         print("Listening...")
         r.pause_threshold = 1.5
         audio = r.listen(source)
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio, language="en-US")
+        print(f"User Said: {query} \n")
+    except Exception as e:
+        print(f"Sorry {author}, say that again...")
+        return "None"
+    return query
     
     
 
 if __name__ == '__main__':
     # speak(f'Hello {author}, I am Jarvis')
-    wishMe()
+    # wishMe()
+    takeCommand()
 
 

@@ -6,7 +6,7 @@ voices = engine.getProperty('voices')
 
 engine.setProperty('voice', voices[0].id)
 
-author = Blvck
+author = "Black"
 
 def speak(audio):
     engine.say(audio)
@@ -27,4 +27,5 @@ def wishMe():
 
 
 if __name__ == '__main__':
-    speak(f'Hello {author}, I am Jarvis')
+    # speak(f'Hello {author}, I am Jarvis')
+    wishMe()

@@ -1,5 +1,8 @@
 import pyttsx3
 import datetime
+import speechRecognition as sr
+
+
 engine = pyttsx3.init('sapi5')
 
 voices = engine.getProperty('voices')
@@ -23,9 +26,20 @@ def wishMe():
 
     speak(f"Hello {author} I am Jarvis, Please tell me how may I help you?")
         
-
-
+def takeCommand():
+    '''
+    take microphone input from the user and return string
+    '''
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1.5
+        audio = r.listen(source)
+    
+    
 
 if __name__ == '__main__':
     # speak(f'Hello {author}, I am Jarvis')
     wishMe()
+
+
